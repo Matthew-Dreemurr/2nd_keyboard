@@ -11,15 +11,16 @@ Menu, Tray, Icon, shell32.dll, 283 ; this changes the tray icon to a little keyb
 FileRead, key, C:\Users\matthew_dreemurr\Downloads\luamacros\keypressed.txt
 
 ; ------------------------------------- ;
-; Work in google chrome (test)          ;
+; If Discord is active                  ;
 ; ------------------------------------- ;
-If WinActive("ahk_exe Chrome.exe") 
+
+If WinActive("ahk_exe Discord.exe") 
 {
-	If (key = "o"){
-		Run http://google.com
+	If (key = "delete"){
+		Send, {Ctrl Down}{Shift Down}{Down Down}{Ctrl Up}{Shift Up}{Down Up}
 		Return
 	}
-}
+}	
 
 ; ------------------------------------- ;
 ; Default work in any other application ;
@@ -37,11 +38,11 @@ If (key = "pageup"){
 	Return
 }
 If (key = "delete"){
-	
+	Send, {delete}
 	Return
 }
 If (key = "end"){
-	
+	Send, {F25}
 	Return
 }
 If (key = "pagedown"){
